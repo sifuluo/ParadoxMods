@@ -1,0 +1,30 @@
+﻿l_simp_chinese:
+
+ r_tian:0 "天天性爱宝典"
+ r_tian_desc:0 "天天独特的性爱技巧"
+
+ tian_army:0 "天家禁卫"
+ tian_army_desc:0 "天家禁卫，所向无敌"
+
+ decision_SF_city:0 "建设天天淫窝"
+ decision_SF_city_desc:0 "天天淫窝，简单又强大"
+
+ decision_SF_relic:0 "重建废弃淫窝"
+ decision_SF_relic_desc:0 "重建废弃淫窝工作"
+
+ decision_SF_habitable:0 "宜居世界"
+ decision_SF_habitable_desc:0 "变得宜居起来"
+
+ holding_SF_headquarters:0 "天家大保健"
+ holding_SF_headquarters_desc:0 "天家大保健，来了都说好"
+
+ SF.0.name:0 "首都L-Gate"
+ SF.0.desc:0 "首都创建L-Gate"
+ SF.0a.name:0 "创建"
+ SF.0a.tooltip:0 "确认创建"
+
+ SF.z.name:0 "算了"
+ SF.z.tooltip:0 "算了吧"
+
+
+

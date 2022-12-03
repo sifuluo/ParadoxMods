@@ -1,0 +1,35 @@
+# Defensive armies can't transport off the planet
+# Maintenance is directly scripted here. 0.25 translates to 0.25 monthly cost (excluding other upkeep modifiers)
+# Morale_damage = 1		# average morale damage of the army, default: auto (calculated from morale * MORALE_DAMAGE_MULT)
+# Building spawned armies can't be built normally, but only created from pops working buildings
+
+tian_army = {
+	damage = 10.0
+	health = 18.0
+	has_morale = no
+	morale_damage = 6
+	collateral_damage = 5.0
+	war_exhaustion = 0.5
+	time = 100
+	has_species = no
+
+	icon = GFX_army_type_imperial
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 100
+		}
+
+		upkeep = {
+			energy = 1
+		}
+	}
+
+	potential_country = {
+		has_relic = r_tian
+	}
+	ai_weight = {
+		base = 0
+	}
+}

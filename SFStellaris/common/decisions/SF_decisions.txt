@@ -1,0 +1,101 @@
+decision_SF_city = {
+	owned_planets_only = yes
+	icon = decision_arcology_project
+
+	enactment_time = 30
+	resources = {
+		category = decisions
+		cost = {
+			influence = 200
+			minerals = 20000
+		}
+	}
+
+	potential = {
+		is_artificial = no
+		exists = owner
+		NOT = { is_planet_class = pc_city}
+		owner = {
+			has_relic = r_tian
+		}
+	}
+
+	allow = {
+		num_uncleared_blockers < 1
+	}
+
+	effect = {
+		# Make city-planet
+		custom_tooltip = decision_arcology_project_effects
+		hidden_effect = {
+			clear_deposits = yes
+			set_industrial_focus_flags = yes
+			change_pc = pc_city
+			relic_world_conversion_effect = {
+				DISTRICT = district_arcology_housing
+				VARIABLE = num_housing_districts
+			}
+			relic_world_conversion_effect = {
+				DISTRICT = district_arcology_arms_industry
+				VARIABLE = num_industrial_districts
+			}
+			set_ecu_industrial_districts_effect = yes
+			set_planet_entity = {
+				entity = "city_planet_entity"
+				graphical_culture = owner
+			}
+			add_deposit = d_former_relic_world
+			planet_event = { id = mega.201 }
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+decision_SF_relic = {
+	owned_planets_only = yes
+	icon = decision_arcology_project
+
+	resources = {
+		category = decisions
+		cost = {
+			energy = 100
+		}
+	}
+
+	potential = {
+		is_artificial = no
+		NOR = {
+			is_planet_class = pc_relic
+			is_planet_class = pc_city
+		}
+		exists = owner
+		owner = {
+			has_relic = r_tian
+		}
+	}
+
+	allow = {
+
+	}
+
+	effect = {
+		# custom_tooltip = decision_arcology_project_effects
+		hidden_effect = {
+			change_pc = pc_relic
+			add_deposit = d_relic_dense_ruins
+			add_deposit = d_central_spire
+			add_deposit = d_industrial_sector
+			add_deposit = d_immense_solar_array
+			add_deposit = d_ancient_reactor_pits
+			add_deposit = d_abandoned_mining_tunnels
+			add_deposit = d_relic_metal_boneyard
+		}
+	}
+
+	ai_weight = {
+		weight = 0
+	}
+}
