@@ -39,3 +39,27 @@ country_event = {
 		custom_tooltip = SF.z.tooltip
 	}
 }
+
+
+# Overwriting mechanical leader malfunction
+event = {
+	id = syndaw.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_playable_country = {
+			limit = {
+				OR = {
+					has_authority = auth_machine_intelligence
+					has_country_flag = synthetic_empire
+					has_technology = "tech_synthetic_workers"
+				}
+				NOT = {
+					has_relic = r_tian
+				}
+			}
+			country_event = { id = syndaw.11 random = 200 }
+		}
+	}
+}
