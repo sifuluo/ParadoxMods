@@ -1,0 +1,94 @@
+SF_Tian = {
+	good = yes
+	dread_loss_mult = -1.0
+	men_at_arms_maintenance = -0.5
+	dread_baseline_add = 100
+	character_capital_county_monthly_development_growth_add = 0.3
+	vassal_opinion = 40
+	powerful_vassal_opinion = 40
+	realm_priest_opinion = 40
+	clergy_opinion = 60
+	court_grandeur_baseline_add = 100
+	men_at_arms_cap = 10
+	men_at_arms_limit = 5
+	life_expectancy = 10
+	health = 2.0
+	stress_loss_mult = 1.0
+	stress_gain_mult = -0.5
+	monthly_lifestyle_xp_gain_mult = 2.0
+	diplomatic_range_mult = 0.3
+	scope:realm_priest = {
+		learning = 20
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_SF_Tian_desc
+			}
+			desc = trait_SF_Tian_desc
+		}
+	}
+}
+
+SF_disinherit = {
+	good = yes
+	stewardship = 5
+	can_inherit = no
+	blocks_from_claim_inheritance = yes
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_SF_disinherit_desc
+			}
+			desc = trait_SF_disinherit_desc
+		}
+	}
+}
+
+SF_family = {
+	good = yes
+	inherit_chance = 100
+	parent_inheritance_sex = male
+
+	fertility = 2.0
+	negate_health_penalty_add = 2.0
+
+	potential = {
+		father = real_father
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_SF_family_desc
+			}
+			desc = trait_SF_family_desc
+		}
+	}
+}
+
+SF_priest = {
+	good = yes
+	learning = 20
+	stewardship = 5
+	ai_greed = -200
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_SF_priest_desc
+			}
+			desc = trait_SF_priest_desc
+		}
+	}
+}

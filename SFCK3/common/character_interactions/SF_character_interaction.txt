@@ -1,0 +1,170 @@
+SF_interactions_001 = {
+	category = interaction_category_uncategorized
+	auto_accept = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = yes
+	
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+		}
+		NOT = {
+			scope:recipient = { has_trait = SF_disinherit }
+		}
+		
+	}
+	on_send = {
+		scope:recipient = {
+			add_trait = SF_disinherit
+		}
+	}
+}
+
+SF_interactions_002 = {
+	category = interaction_category_uncategorized
+	auto_accept = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = yes
+	
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+		}
+		scope:recipient = {
+			has_trait = SF_disinherit
+		}
+	}
+	on_send = {
+		scope:recipient = {
+			remove_trait = SF_disinherit
+		}
+	}
+}
+
+SF_interactions_003 = {
+	category = interaction_category_uncategorized
+	auto_accept = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = yes
+	
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+		}
+	}
+	on_send = {
+		scope:recipient = {
+			if = {
+				limit = {
+					has_trait = SF_Tian
+				}
+				remove_trait = SF_Tian
+			}
+			else = {
+				add_trait = SF_Tian
+			}
+		}
+	}
+}
+
+SF_interactions_004 = {
+	category = interaction_category_uncategorized
+	auto_accept = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+		}
+		scope:recipient = scope:actor.realm_priest
+	}
+	on_send = {
+		scope:recipient = {
+			if = {
+				limit = {
+					has_trait = SF_priest
+				}
+				remove_trait = SF_priest
+			}
+			else = {
+				add_trait = SF_priest
+			}
+		}
+	}
+}
+
+SF_vassalization = {
+    category = interaction_category_uncategorized
+	auto_accept = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = yes
+	
+	is_shown = {
+		scope:recipient = {
+			NOT = { this = scope:actor }
+			is_landed = yes
+			highest_held_title_tier < scope:actor.highest_held_title_tier
+			NOT = { government_has_flag = can_not_be_vassal_or_liege }
+		}
+		scope:actor = {
+			is_ai = no
+		}
+	}
+
+	is_valid_showing_failures_only = {
+	}
+	ai_accept = {
+		base = 100
+	}
+
+	on_accept = {
+		offer_vassalization_interaction_effect = yes
+	}
+
+	on_decline = {
+	}
+
+	ai_will_do = 0
+}
+
+SF_change_believe = {
+	category = interaction_category_uncategorized
+	auto_accept = yes
+	use_diplomatic_range = no
+	ignores_pending_interaction_block = yes
+	common_interaction = yes
+
+	is_shown = {
+#		NOT = { scope:recipient = scope:actor }
+		NAND = {
+			scope:actor.faith = scope:recipient.faith
+			scope:actor.culture = scope:recipient.culture
+			scope:actor.faith = scope:recipient.capital_county.faith
+			scope:actor.culture = scope:recipient.capital_county.culture
+			scope:recipient.is_landed = no
+		}
+		scope:actor = {
+			is_ai = no
+		}
+	}
+
+	on_accept = {
+		scope:recipient = {
+			set_character_faith = scope:actor.faith
+			set_culture = scope:actor.culture
+			capital_county = {
+				set_county_faith = scope:actor.faith
+				set_county_culture = scope:actor.culture
+			}
+		}
+	}
+	auto_accept = yes
+
+	ai_will_do = 0
+}

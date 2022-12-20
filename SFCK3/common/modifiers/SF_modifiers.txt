@@ -1,0 +1,13 @@
+SF_dynasty = {
+	icon = social_positive
+	fertility = 0.2
+	inbreeding_chance = -1.0
+	dynasty_opinion = 200
+	positive_random_genetic_chance = 0.30
+	positive_inactive_inheritance_chance = 0.30
+	genetic_trait_strengthen_chance = 0.30
+	negative_random_genetic_chance = -0.30
+	negative_inactive_inheritance_chance = -0.30
+	ai_greed = -50
+	ai_honor = 200
+}
